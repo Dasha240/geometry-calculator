@@ -1,0 +1,7 @@
+import math
+x = 0.35
+term1 = math.pow(x, 1 / (2 * x))
+inner_expr = (2 + math.pow(x, 2)) / (1 - 2 * math.pow(x, 2))
+term2 = math.pow(inner_expr, 1/3) 
+y = term1 + term2
+print(f"{y:.5f}")

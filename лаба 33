@@ -1,0 +1,17 @@
+import math
+a = -5.0
+b = 5.0
+step = 0.5
+x = a
+print("x\t\t y")
+print("-" * 25)
+while x <= b + 0.00001:  
+
+    if x < -2:
+        y = x**2 + 1
+    elif -2 <= x <= 2:
+        y = math.sin(x)
+    else:  # x > 2
+        y = math.sqrt(x - 2)
+    print(f"{x:.1f}\t\t {y:.5f}")
+    x += step

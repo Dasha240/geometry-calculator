@@ -1,0 +1,14 @@
+import math
+a = 0.1
+b = 0.9
+step = 0.05
+x = a
+print("x\t\t y")
+print("-" * 25)
+while x <= b + 0.000001: 
+    exponent = x - math.log(3 * x)
+    term1 = math.exp(exponent * math.log(4))
+    term2 = math.log(3 * x) / math.log(4)
+    y = math.sin(term1) + term2
+    print(f"{x:.2f}\t\t {y:.5f}")
+    x += step
