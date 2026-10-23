@@ -1,0 +1,33 @@
+def three_sum(nums):
+    nums.sort()  # Сортируем массив
+    result = []
+    n = len(nums)
+
+    for i in range(n):
+        if i > 0 and nums[i] == nums[i - 1]:  # Пропускаем дубликаты для i
+            continue
+        
+        left, right = i + 1, n - 1  # Указываем два указателя
+        while left < right:
+            total = nums[i] + nums[left] + nums[right]
+            if total < 0:
+                left += 1  # Увеличиваем сумму
+            elif total > 0:
+                right -= 1  # Уменьшаем сумму
+            else:
+                result.append([nums[i], nums[left], nums[right]])  # Нашли тройку
+                # Пропускаем дубликаты для left
+                while left < right and nums[left] == nums[left + 1]:
+                    left += 1
+                # Пропускаем дубликаты для right
+                while left < right and nums[right] == nums[right - 1]:
+                    right -= 1
+                left += 1
+                right -= 1
+
+    return result
+
+# Примеры использования
+print(three_sum([-1, 0, 1, 2, -1, -4]))  # → [[-1, -1, 2], [-1, 0, 1]]
+print(three_sum([0, 0, 0]))                # → [[0, 0, 0]]
+print(three_sum([1, 2, 3]))                # → []
