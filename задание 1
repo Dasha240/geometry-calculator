@@ -1,0 +1,16 @@
+s = "Hello World"
+
+# Определяем гласные и согласные
+vowels = "aeiouAEIOU"
+consonants_count = 0
+vowels_count = 0
+
+# Итерируемся по каждому символу в строке
+for char in s:
+    if char.isalpha():  # Проверяем, является ли символ буквой
+        if char in vowels:  # Проверяем, является ли буква гласной
+            vowels_count += 1
+        else:  # Если не гласная, то она согласная
+            consonants_count += 1
+
+print(f"Гласных: {vowels_count}, согласных: {consonants_count}")  # Гласных: 3, согласных: 7
