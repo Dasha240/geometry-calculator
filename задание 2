@@ -1,0 +1,23 @@
+# Считываем количество чисел
+N = int(input("Введите количество целых чисел: "))
+# Считываем целые числа
+numbers = list(map(int, input("Введите целые числа через пробел: ").split()))
+
+# Инициализируем индексы
+first_negative_index = -1
+last_positive_index = -1
+
+# Поиск индексов первого отрицательного и последнего положительного элемента
+for i in range(N):
+    if numbers[i] < 0 and first_negative_index == -1:
+        first_negative_index = i
+    if numbers[i] > 0:
+        last_positive_index = i
+
+# Проверяем, найден ли первый отрицательный и последний положительный элемент
+if first_negative_index != -1 and last_positive_index != -1 and first_negative_index <= last_positive_index:
+    # Вычисляем сумму элементов между этими индексами включительно
+    result_sum = sum(numbers[first_negative_index:last_positive_index + 1])
+    print("Сумма элементов между первым отрицательным и последним положительным элементом:", result_sum)
+else:
+    print("Не удалось найти подходящие элементы.")
