@@ -1,0 +1,23 @@
+import numpy as np
+
+def move_max_to_top_left(matrix):
+    n = matrix.shape[0]
+    max_value = None
+    max_position = (-1, -1)
+
+    # Поиск максимального по модулю элемента
+    for i in range(n):
+        for j in range(n):
+            if max_value is None or abs(matrix[i][j]) > abs(max_value):
+                max_value = matrix[i][j]
+                max_position = (i, j)
+
+    # Перестановка строк
+    if max_position[0] != 0:
+        matrix[[0, max_position[0]]] = matrix[[max_position[0], 0]]
+
+    # Перестановка столбцов
+    if max_position[1] != 0:
+        matrix[:, [0, max_position[1]]] = matrix[:, [max_position[1], 0]]
+
+    return matrix
