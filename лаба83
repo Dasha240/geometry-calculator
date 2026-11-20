@@ -1,0 +1,21 @@
+def move_min_to_top_right(matrix):
+    n = matrix.shape[0]
+    min_value = None
+    min_position = (-1, -1)
+
+    # Поиск минимального элемента
+    for i in range(n):
+        for j in range(n):
+            if min_value is None or matrix[i][j] < min_value:
+                min_value = matrix[i][j]
+                min_position = (i, j)
+
+    # Перестановка строк
+    if min_position[0] != 0:
+        matrix[[0, min_position[0]]] = matrix[[min_position[0], 0]]
+
+    # Перестановка столбцов
+    if min_position[1] != n-1:
+        matrix[:, [n-1, min_position[1]]] = matrix[:, [min_position[1], n-1]]
+
+    return matrix
