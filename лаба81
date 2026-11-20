@@ -1,0 +1,44 @@
+import numpy as np
+def transform_matrix(A):
+    n = A.shape[0]
+    m = A.shape[1]
+
+    # 9.1: Замена каждого элемента a[i][j] на максимальный элемент в Aij
+    max_matrix = np.zeros((n, m))
+    for i in range(n):
+        for j in range(m):
+            max_matrix[i][j] = np.max(A[:i + 1, :j + 1])
+    print("Преобразование 9.1 (максимум):")
+    print(max_matrix)
+
+    # 9.2: Замена каждого элемента a[i][j] на минимальный элемент в Aij
+    min_matrix = np.zeros((n, m))
+    for i in range(n):
+        for j in range(m):
+            min_matrix[i][j] = np.min(A[:i + 1, :j + 1])
+    print("Преобразование 9.2 (минимум):")
+    print(min_matrix)
+
+    # 9.3: Замена каждого элемента a[i][j] на среднее арифметическое в Aij
+    mean_matrix = np.zeros((n, m))
+    for i in range(n):
+        for j in range(m):
+            mean_matrix[i][j] = np.mean(A[:i + 1, :j + 1])
+    print("Преобразование 9.3 (среднее арифметическое):")
+    print(mean_matrix)
+
+    # 9.4: Замена каждого элемента a[i][j] на сумму всех элементов в Aij
+    sum_matrix = np.zeros((n, m))
+    for i in range(n):
+        for j in range(m):
+            sum_matrix[i][j] = np.sum(A[:i + 1, :j + 1])
+    print("Преобразование 9.4 (сумма):")
+    print(sum_matrix)
+
+
+# Пример использования
+A = np.array([[1, 2, 3],
+              [4, 5, 6],
+              [7, 8, 9]])
+
+transform_matrix(A)
