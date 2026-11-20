@@ -1,0 +1,21 @@
+def main():
+    N = int(input("Введите количество чисел N: "))
+    print(f"Введите {N} чисел:")
+
+    numbers = input().split()  # считываем всю строку и разбиваем её по пробелам
+    if len(numbers) != N:
+        print(f"Вы должны ввести ровно {N} чисел.")
+        return
+
+    try:
+        numbers = [float(num) for num in numbers]  # преобразуем каждое число в float
+    except ValueError:
+        print("Ошибка: одно из введенных значений не является числом.")
+        return
+
+    # Здесь можно добавить свою логику работы с числами
+    print("Введённые числа:", numbers)
+
+
+if __name__ == "__main__":
+    main()
