@@ -1,0 +1,22 @@
+
+def calculate_product_in_range(arr, x, y):
+    product = 1
+    found = False
+    for num in arr:
+        if x <= num <= y:
+            product *= num
+            found = True
+    return product if found else 0
+def main():
+    # Ввод количества чисел
+    N = int(input("Введите количество чисел N: "))
+    arr = []
+    for i in range(N):
+        num = float(input(f"Введите число {i + 1}: "))
+        arr.append(num)
+    x = float(input("Введите X: "))
+    y = float(input("Введите Y: "))
+    product = calculate_product_in_range(arr, x, y)
+    print(f"Произведение элементов массива в отрезке [{x}, {y}]: {product}")
+if __name__ == "__main__":
+    main()
